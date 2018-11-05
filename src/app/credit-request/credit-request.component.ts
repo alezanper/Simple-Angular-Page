@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-credit-request',
@@ -13,11 +13,12 @@ export class CreditRequestComponent implements OnInit {
   ti : string;
   documento : string;
   name : string;
+  salary : number;
 
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   
-  constructor(private _formBuilder: FormBuilder) { }
+  constructor(private _formBuilder: FormBuilder, private router: Router,  private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
@@ -26,6 +27,14 @@ export class CreditRequestComponent implements OnInit {
     this.secondFormGroup = this._formBuilder.group({
       secondCtrl: ['', Validators.required]
     });
+  }
+
+  onShowOffers(){
+    if( this.salary > 500) {
+      this.router.navigate([''], {relativeTo: this.route});
+    } else{
+      
+    }
   }
 
 }
