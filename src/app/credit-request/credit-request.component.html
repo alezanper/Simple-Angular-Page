@@ -1,62 +1,116 @@
-<mat-vertical-stepper linear #stepper>
+<div class="row">
+    <div class="container">
 
-    <mat-step [stepControl]="firstFormGroup">
-        <form [formGroup]="firstFormGroup">
-            <ng-template matStepLabel>¿Cuál es tu Nombre?</ng-template>
-            <mat-form-field>
-                <input matInput placeholder="Nombre, Apellido" formControlName="firstCtrl" required>
-            </mat-form-field>
-            <div><button mat-button matStepperNext>Siguiente</button></div>
-        </form>
-    </mat-step>
 
-    <mat-step [stepControl]="secondFormGroup">
-        <form [formGroup]="secondFormGroup">
-            <ng-template matStepLabel>¿Cuál es tu tipo y número de documento?</ng-template>
-            <h5>Tipo de Documento</h5>
-            <mat-form-field>
-                <select matNativeControl required>
-                    <option value="CC">Cédula</option>
-                    <option value="CE">Cédula de Extranjería</option>
-                    <option value="TI">Tarjeta de Identidad</option>
-                </select>
-            </mat-form-field>
 
-            <h5>Número de Documento</h5>
-            <mat-form-field>
-                <input matInput type="number" formControlName="secondCtrl" required>
-            </mat-form-field>
-            <div>
-                <button mat-button matStepperPrevious>Regresar</button>
-                <button mat-button matStepperNext>Siguiente</button>
-            </div>
-        </form>
-    </mat-step>
+        <mat-horizontal-stepper linear #stepper>
 
-    <mat-step [stepControl]="firstFormGroup">
-        <form [formGroup]="firstFormGroup">
-            <ng-template matStepLabel>¿Cuál es tu Ingreso Mensual?</ng-template>
-            <mat-form-field>
-                <div class="input-group">
-                    <span class="input-group-addon">$</span>
-                    <input matInput type="number" class="form-control" formControlName="firstCtrl" required>
+            <mat-step [stepControl]="secondFormGroup">
+
+
+                <div class="panel panel-info">
+                    <div class="panel-heading"> </div>
+                    <div class="panel-body">
+                        <form [formGroup]="secondFormGroup">
+
+                            <h4>Tipo de Documento</h4>
+                            <mat-form-field>
+                                <select matNativeControl required [(ngModel)]="ti" [ngModelOptions]="{standalone: true}">
+                                    <option value="CC">Cédula</option>
+                                    <option value="CE">Cédula de Extranjería</option>
+                                    <option value="NIT">NIT</option>
+                                    <option value="TI">Tarjeta de Identidad</option>
+                                </select>
+                            </mat-form-field>
+
+                            <h4>Número de Documento</h4>
+                            <mat-form-field>
+                                <input matInput type="number" [(ngModel)]="documento" formControlName="secondCtrl"
+                                    required>
+                            </mat-form-field>
+                            <div>
+                                <button class="btn btn-primary" matStepperNext>Siguiente</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </mat-form-field>
-            <div>
-                <button mat-button matStepperPrevious>Regresar</button>
-                <button mat-button matStepperNext>Siguiente</button>
-            </div>
-        </form>
-    </mat-step>
+            </mat-step>
+
+            <mat-step [stepControl]="firstFormGroup">
+
+                <div class="panel panel-success">
+                    <div class="panel-heading"> </div>
+                    <div class="panel-body">
+                        <form [formGroup]="firstFormGroup">
+                            <h4>¿Cúal es tu nombre?</h4>
+                            <mat-form-field>
+                                <input matInput placeholder="Nombre, Apellido" [(ngModel)]="name" formControlName="firstCtrl"
+                                    required>
+                            </mat-form-field>
+                            <h4>¿Cúal es tu email?</h4>
+                            <mat-form-field>
+                                <input matInput placeholder="correo@dominio.com" [(ngModel)]="email" formControlName="firstCtrl"
+                                    required>
+                            </mat-form-field>
+                            <div>
+                                <button class="btn btn-primary" matStepperPrevious>Regresar</button>
+                                <button class="btn btn-primary" matStepperNext>Siguiente</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
 
 
-    <mat-step>
-        <ng-template matStepLabel>Done</ng-template>
-        You are now done.
-        <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button (click)="stepper.reset()">Reset</button>
-        </div>
-    </mat-step>
+            </mat-step>
 
-</mat-vertical-stepper>
+
+            <mat-step [stepControl]="firstFormGroup">
+
+
+                    <div class="panel panel-danger">
+                            <div class="panel-heading"> </div>
+                            <div class="panel-body">
+                                    <form [formGroup]="firstFormGroup">
+                                            <h4>¿Cuál es tu Ingreso Mensual?</h4>
+                                            <mat-form-field>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">$</span>
+                                                    <input matInput type="number" [(ngModel)]="salary" class="form-control" formControlName="firstCtrl"
+                                                        required>
+                                                </div>
+                                            </mat-form-field>
+                                            <div>
+                                                <button class="btn btn-primary" matStepperPrevious>Regresar</button>
+                                                <button class="btn btn-primary" matStepperNext>Siguiente</button>
+                                            </div>
+                                        </form>
+                            </div>
+                        </div>
+
+                
+            </mat-step>
+
+
+            <mat-step>
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading">¿Es correcto?</div>
+                    <div class="panel-body">
+                        <h4>Tipo Documento: {{ti}}</h4>
+                        <h4>Documento: {{documento}}</h4>
+                        <h4>Nombre: {{name}}</h4>
+                        <h4>Correo Electrónico: {{email}}</h4>
+                        <h4>Salario: {{salary}}</h4>
+                    </div>
+                </div>
+
+                <div>
+                    <button class="btn btn-primary" matStepperPrevious>Regresar</button>
+                    <button class="btn btn-success" matStepperPrevious>Solicitar</button>
+                    <button class="btn btn-danger" (click)="stepper.reset()">Reiniciar</button>
+                </div>
+            </mat-step>
+
+        </mat-horizontal-stepper>
+    </div>
+</div>

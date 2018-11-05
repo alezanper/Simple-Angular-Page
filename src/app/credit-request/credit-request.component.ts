@@ -10,6 +10,10 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class CreditRequestComponent implements OnInit {
 
   isLinear = false;
+  ti : string;
+  documento : string;
+  name : string;
+
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   
