@@ -9,6 +9,7 @@
                     <div class="panel-body">
                         <form [formGroup]="secondFormGroup">
                             <span class="label label-info">¿Cuál es tu número de documento?</span>
+                            <br/>
                             <mat-form-field>
                                 <input matInput type="number" [(ngModel)]="documento" formControlName="secondCtrl"
                                     required>
@@ -28,11 +29,14 @@
                     <div class="panel-body">
                         <form [formGroup]="firstFormGroup">
                             <span class="label label-info">¿Cuál es tu nombre?</span>
+                            <br/>
                             <mat-form-field>
                                 <input matInput placeholder="Nombre, Apellido" [(ngModel)]="name" formControlName="firstCtrl"
                                     required>
                             </mat-form-field>
+                            <br/>
                             <span class="label label-info">¿Cuál es tu correo electrónico?</span>
+                            <br/>
                             <mat-form-field>
                                 <input matInput placeholder="correo@dominio.com" [(ngModel)]="email" formControlName="firstCtrl"
                                     required>
@@ -52,6 +56,7 @@
                     <div class="panel-body">
                         <form [formGroup]="firstFormGroup">
                             <span class="label label-info">¿Cuál es tu Ingreso Mensual?</span>
+                            <br/>
                             <mat-form-field>
                                 <div class="input-group">
                                     <input matInput type="number" [(ngModel)]="salary" class="form-control"
@@ -71,10 +76,10 @@
                 <div class="panel panel-info">
                     <div class="panel-heading">¿Es correcto?</div>
                     <div class="panel-body">
-                        <h4>Documento: {{documento}}</h4>
-                        <h4>Nombre: {{name}}</h4>
-                        <h4>Correo Electrónico: {{email}}</h4>
-                        <h4>Salario: {{salary}}</h4>
+                        <h5>Documento: {{documento}}</h5>
+                        <h5>Nombre: {{name}}</h5>
+                        <h5>Correo Electrónico: {{email}}</h5>
+                        <h5>Salario: {{salary}}</h5>
                         <div>
                             <button class="btn btn-primary" matStepperPrevious>Regresar</button>
                             <button class="btn btn-success" (click)="onShowOffers()">Solicitar</button>
