@@ -16,13 +16,15 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { ProductsComponent } from './products/products.component';
 import { CreditRequestComponent } from './credit-request/credit-request.component';
+import { BasicFormComponent } from './basic-form/basic-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ToolbarComponent,
     ProductsComponent,
-    CreditRequestComponent
+    CreditRequestComponent,
+    BasicFormComponent
   ],
   imports: [
     AppRoutingModule,

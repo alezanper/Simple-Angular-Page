@@ -1,0 +1,118 @@
+<div class="row">
+    <div class="container">
+        <mat-horizontal-stepper linear #stepper>
+            <mat-step [stepControl]="firstFormGroup">
+                <div class="panel panel-info">
+                    <div class="panel-heading"> ¿Cuál es tu número de documento? </div>
+                    <div class="panel-body">
+                        <form [formGroup]="firstFormGroup">
+                            <mat-form-field>
+                                <input matInput type="number" [(ngModel)]="documento" formControlName="firstCtrl"
+                                    required>
+                            </mat-form-field>
+                            <div>
+                                <button class="btn btn-primary" matStepperNext>Siguiente</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </mat-step>
+
+            <mat-step [stepControl]="firstFormGroup">
+                <div class="panel panel-info">
+                    <div class="panel-heading">¿Cuál es tu nombre?</div>
+                    <div class="panel-body">
+                        <form [formGroup]="firstFormGroup">
+                            <mat-form-field>
+                                <input matInput placeholder="Nombre, Apellido" [(ngModel)]="name" formControlName="firstCtrl"
+                                    required>
+                            </mat-form-field>
+                            <div>
+                                <button class="btn btn-primary" matStepperPrevious>Regresar</button>
+                                <button class="btn btn-primary" matStepperNext>Siguiente</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </mat-step>
+
+            <mat-step [stepControl]="firstFormGroup">
+                <div class="panel panel-info">
+                    <div class="panel-heading"> ¿Cuál es tu Ingreso Mensual? </div>
+                    <div class="panel-body">
+                        <form [formGroup]="firstFormGroup">
+                            <mat-form-field>
+                                <input matInput placeholder="$9999" type="number" [(ngModel)]="salary" formControlName="firstCtrl"
+                                    required>
+                            </mat-form-field>
+                            <div>
+                                <button class="btn btn-primary" matStepperPrevious>Regresar</button>
+                                <button class="btn btn-primary" matStepperNext>Siguiente</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </mat-step>
+
+            <mat-step [stepControl]="firstFormGroup">
+                <div class="panel panel-info">
+                    <div class="panel-heading"> Algunos datos de contacto </div>
+                    <div class="panel-body">
+                        <form [formGroup]="firstFormGroup">
+                            <mat-form-field>
+                                <input matInput placeholder="correo@dominio.com" type="email" [(ngModel)]="email"
+                                    formControlName="firstCtrl" required>
+                            </mat-form-field>
+                            <br/>
+                            <mat-form-field>
+                                <input matInput placeholder="3009999999" type="tel" [(ngModel)]="cel" formControlName="firstCtrl"
+                                    required>
+                            </mat-form-field>
+                            <div>
+                                <button class="btn btn-primary" matStepperPrevious>Regresar</button>
+                                <button class="btn btn-primary" matStepperNext>Siguiente</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </mat-step>
+
+            <mat-step>
+                <div class="panel panel-info">
+                    <div class="panel-heading">¿Es correcto?</div>
+                    <div class="panel-body">
+                        <div class="alert alert-info" role="alert">
+                            <h5>Documento: {{documento}}</h5>
+                            <h5>Nombre: {{name}}</h5>
+                            <h5>Correo Electrónico: {{email}}</h5>
+                            <h5>Celular: {{cel}}</h5>
+                            <h5>Salario: {{salary}}</h5>
+                        </div>
+                        <div>
+                            <button class="btn btn-primary" matStepperPrevious>Regresar</button>
+                            <button class="btn btn-primary" matStepperNext>Enviar</button>
+                            <button class="btn btn-danger" (click)="stepper.reset()">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </mat-step>
+
+            <mat-step [stepControl]="firstFormGroup">
+                <div class="panel panel-info">
+                    <div class="panel-heading"> Introduzca el código enviado a su celular </div>
+                    <div class="panel-body">
+                        <form [formGroup]="firstFormGroup">
+                            <mat-form-field>
+                                <input matInput placeholder="123456" type="number" formControlName="firstCtrl" required>
+                            </mat-form-field>
+                            <br/>
+                            <button class="btn btn-primary" matStepperPrevious>Regresar</button>
+                            <button class="btn btn-success" (click)="onShowOffers()">Solicitar</button>
+                        </form>
+                    </div>
+                </div>
+            </mat-step>
+
+        </mat-horizontal-stepper>
+    </div>
+</div>
