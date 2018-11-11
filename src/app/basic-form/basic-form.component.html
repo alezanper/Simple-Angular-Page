@@ -3,11 +3,16 @@
         <mat-horizontal-stepper linear #stepper>
             <mat-step [stepControl]="firstFormGroup">
                 <div class="panel panel-info">
-                    <div class="panel-heading"> ¿Cuál es tu número de documento? </div>
+                    <div class="panel-heading"> <strong> Algunos Datos Personales </strong></div>
                     <div class="panel-body">
                         <form [formGroup]="firstFormGroup">
                             <mat-form-field>
-                                <input matInput type="number" [(ngModel)]="documento" formControlName="firstCtrl"
+                                <input placeholder="Número de Documento" matInput type="number" [(ngModel)]="documento" formControlName="firstCtrl"
+                                    required>
+                            </mat-form-field>
+                            <br/>
+                            <mat-form-field>
+                                <input matInput placeholder="Nombre Completo" [(ngModel)]="name" formControlName="firstCtrl"
                                     required>
                             </mat-form-field>
                             <div>
@@ -20,52 +25,16 @@
 
             <mat-step [stepControl]="firstFormGroup">
                 <div class="panel panel-info">
-                    <div class="panel-heading">¿Cuál es tu nombre?</div>
+                    <div class="panel-heading"> <strong>Datos de Contacto</strong> </div>
                     <div class="panel-body">
                         <form [formGroup]="firstFormGroup">
                             <mat-form-field>
-                                <input matInput placeholder="Nombre, Apellido" [(ngModel)]="name" formControlName="firstCtrl"
-                                    required>
-                            </mat-form-field>
-                            <div>
-                                <button class="btn btn-primary" matStepperPrevious>Regresar</button>
-                                <button class="btn btn-primary" matStepperNext>Siguiente</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </mat-step>
-
-            <mat-step [stepControl]="firstFormGroup">
-                <div class="panel panel-info">
-                    <div class="panel-heading"> ¿Cuál es tu Ingreso Mensual? </div>
-                    <div class="panel-body">
-                        <form [formGroup]="firstFormGroup">
-                            <mat-form-field>
-                                <input matInput placeholder="$9999" type="number" [(ngModel)]="salary" formControlName="firstCtrl"
-                                    required>
-                            </mat-form-field>
-                            <div>
-                                <button class="btn btn-primary" matStepperPrevious>Regresar</button>
-                                <button class="btn btn-primary" matStepperNext>Siguiente</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </mat-step>
-
-            <mat-step [stepControl]="firstFormGroup">
-                <div class="panel panel-info">
-                    <div class="panel-heading"> Algunos datos de contacto </div>
-                    <div class="panel-body">
-                        <form [formGroup]="firstFormGroup">
-                            <mat-form-field>
-                                <input matInput placeholder="correo@dominio.com" type="email" [(ngModel)]="email"
+                                <input matInput placeholder="Correo Electrónico" type="email" [(ngModel)]="email"
                                     formControlName="firstCtrl" required>
                             </mat-form-field>
                             <br/>
                             <mat-form-field>
-                                <input matInput placeholder="3009999999" type="tel" [(ngModel)]="cel" formControlName="firstCtrl"
+                                <input matInput placeholder="Celular" type="tel" [(ngModel)]="cel" formControlName="firstCtrl"
                                     required>
                             </mat-form-field>
                             <div>
@@ -77,20 +46,40 @@
                 </div>
             </mat-step>
 
+
+            <mat-step [stepControl]="firstFormGroup">
+                <div class="panel panel-info">
+                    <div class="panel-heading"> <strong>¿Cuál es tu Ingreso Mensual?</strong> </div>
+                    <div class="panel-body">
+                        <form [formGroup]="firstFormGroup">
+                            <mat-form-field>
+                                <input matInput placeholder="Salario" type="number" [(ngModel)]="salary" formControlName="firstCtrl"
+                                    required>
+                            </mat-form-field>
+                            <div>
+                                <button class="btn btn-primary" matStepperPrevious>Regresar</button>
+                                <button class="btn btn-primary" matStepperNext>Siguiente</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </mat-step>
+
+           
             <mat-step>
                 <div class="panel panel-info">
-                    <div class="panel-heading">¿Es correcto?</div>
+                    <div class="panel-heading"><strong>¿Es correcto?</strong></div>
                     <div class="panel-body">
                         <div class="alert alert-info" role="alert">
-                            <h5>Documento: {{documento}}</h5>
-                            <h5>Nombre: {{name}}</h5>
-                            <h5>Correo Electrónico: {{email}}</h5>
-                            <h5>Celular: {{cel}}</h5>
-                            <h5>Salario: {{salary}}</h5>
+                            <h5><strong>Documento: </strong> {{documento}}</h5>
+                            <h5><strong>Nombre:</strong> {{name}}</h5>
+                            <h5><strong>Correo Electrónico:</strong> {{email}}</h5>
+                            <h5><strong>Celular:</strong> {{cel}}</h5>
+                            <h5><strong>Salario:</strong> {{salary}}</h5>
                         </div>
                         <div>
                             <button class="btn btn-primary" matStepperPrevious>Regresar</button>
-                            <button class="btn btn-primary" matStepperNext>Enviar</button>
+                            <button class="btn btn-success" matStepperNext>Enviar</button>
                             <button class="btn btn-danger" (click)="stepper.reset()">Cancelar</button>
                         </div>
                     </div>
@@ -99,7 +88,7 @@
 
             <mat-step [stepControl]="firstFormGroup">
                 <div class="panel panel-info">
-                    <div class="panel-heading"> Introduzca el código enviado a su celular </div>
+                    <div class="panel-heading"> <strong>Introduzca el código enviado a su celular</strong>  </div>
                     <div class="panel-body">
                         <form [formGroup]="firstFormGroup">
                             <mat-form-field>

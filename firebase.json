@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/easycredit",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
