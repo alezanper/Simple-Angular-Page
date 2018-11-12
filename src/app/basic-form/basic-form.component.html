@@ -6,13 +6,11 @@
                     <div class="panel-heading"> <strong> Algunos Datos Personales </strong></div>
                     <div class="panel-body">
                         <form [formGroup]="firstFormGroup">
+                            <label>Documento</label>
+                            <input type="file" formControlName="firstCtrl" required>
+                            <br />
                             <mat-form-field>
-                                <input placeholder="Número de Documento" matInput type="number" [(ngModel)]="documento" formControlName="firstCtrl"
-                                    required>
-                            </mat-form-field>
-                            <br/>
-                            <mat-form-field>
-                                <input matInput placeholder="Nombre Completo" [(ngModel)]="name" formControlName="firstCtrl"
+                                <input matInput placeholder="¿Nombre Favorito?" [(ngModel)]="name" formControlName="firstCtrl"
                                     required>
                             </mat-form-field>
                             <div>
@@ -32,9 +30,9 @@
                                 <input matInput placeholder="Correo Electrónico" type="email" [(ngModel)]="email"
                                     formControlName="firstCtrl" required>
                             </mat-form-field>
-                            <br/>
+                            <br />
                             <mat-form-field>
-                                <input matInput placeholder="Celular" type="tel" [(ngModel)]="cel" formControlName="firstCtrl"
+                                <input matInput placeholder="Celular" type="number" [(ngModel)]="cel" formControlName="firstCtrl"
                                     required>
                             </mat-form-field>
                             <div>
@@ -52,10 +50,9 @@
                     <div class="panel-heading"> <strong>¿Cuál es tu Ingreso Mensual?</strong> </div>
                     <div class="panel-body">
                         <form [formGroup]="firstFormGroup">
-                            <mat-form-field>
-                                <input matInput placeholder="Salario" type="number" [(ngModel)]="salary" formControlName="firstCtrl"
-                                    required>
-                            </mat-form-field>
+                            <label>Soporte de Ingresos</label>
+                            <input type="file" formControlName="firstCtrl" required>
+                            <br />
                             <div>
                                 <button class="btn btn-primary" matStepperPrevious>Regresar</button>
                                 <button class="btn btn-primary" matStepperNext>Siguiente</button>
@@ -65,38 +62,43 @@
                 </div>
             </mat-step>
 
-           
+
             <mat-step>
                 <div class="panel panel-info">
-                    <div class="panel-heading"><strong>¿Es correcto?</strong></div>
+                    <div class="panel-heading"><strong>Confirmanos, {{name}}</strong></div>
                     <div class="panel-body">
-                        <div class="alert alert-info" role="alert">
-                            <h5><strong>Documento: </strong> {{documento}}</h5>
-                            <h5><strong>Nombre:</strong> {{name}}</h5>
-                            <h5><strong>Correo Electrónico:</strong> {{email}}</h5>
-                            <h5><strong>Celular:</strong> {{cel}}</h5>
-                            <h5><strong>Salario:</strong> {{salary}}</h5>
-                        </div>
-                        <div>
-                            <button class="btn btn-primary" matStepperPrevious>Regresar</button>
-                            <button class="btn btn-success" matStepperNext>Enviar</button>
-                            <button class="btn btn-danger" (click)="stepper.reset()">Cancelar</button>
-                        </div>
+                        <form [formGroup]="firstFormGroup">
+
+                            <div class="alert alert-info" role="alert">
+                                <h5><strong>Correo Electrónico:</strong> {{email}}</h5>
+                                <h5><strong>Celular:</strong> {{cel}}</h5>
+                            </div>
+                            <div class="alert alert-warning" role="alert">
+                                *Enviaremos un mensaje de texto para continuar.
+                            </div>
+
+                            <div>
+                                <button class="btn btn-primary" matStepperPrevious>Regresar</button>
+                                <button class="btn btn-success" matStepperNext>Enviar</button>
+                                <button class="btn btn-danger" (click)="stepper.reset()">Cancelar</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </mat-step>
 
             <mat-step [stepControl]="firstFormGroup">
                 <div class="panel panel-info">
-                    <div class="panel-heading"> <strong>Introduzca el código enviado a su celular</strong>  </div>
+                    <div class="panel-heading"> <strong>Introduzca el código enviado a su celular</strong> </div>
                     <div class="panel-body">
                         <form [formGroup]="firstFormGroup">
                             <mat-form-field>
-                                <input matInput placeholder="123456" type="number" formControlName="firstCtrl" required>
+                                <input matInput placeholder="Código" type="number" [(ngModel)]="codigo" formControlName="firstCtrl"
+                                    required>
                             </mat-form-field>
-                            <br/>
+                            <br />
                             <button class="btn btn-primary" matStepperPrevious>Regresar</button>
-                            <button class="btn btn-success" (click)="onShowOffers()">Solicitar</button>
+                            <button class="btn btn-success" (click)="onShowOffers()">Estudiar Documentos</button>
                         </form>
                     </div>
                 </div>

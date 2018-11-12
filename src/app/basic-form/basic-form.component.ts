@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-basic-form',
@@ -11,7 +11,7 @@ export class BasicFormComponent implements OnInit {
 
   isLinear = false;
   ti : string;
-  documento : string;
+  codigo : number;
   name : string;
   salary : number;
   email: string;
@@ -19,7 +19,7 @@ export class BasicFormComponent implements OnInit {
 
   firstFormGroup: FormGroup;
   
-  constructor(private _formBuilder: FormBuilder, private router: Router,  private route: ActivatedRoute) { }
+  constructor(private _formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
@@ -28,11 +28,8 @@ export class BasicFormComponent implements OnInit {
   }
 
   onShowOffers(){
-    if( this.salary > 500) {
-      this.router.navigate([''], {relativeTo: this.route});
-    } else{
-      
-    }
+    if(this.codigo != null)
+      this.router.navigate(['offers']);
   }
 
 }
